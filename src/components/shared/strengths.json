@@ -1,0 +1,17 @@
+{
+  "collectionName": "components_shared_strengths",
+  "info": {
+    "displayName": "Strength",
+    "icon": "crown"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    }
+  },
+  "config": {}
+}

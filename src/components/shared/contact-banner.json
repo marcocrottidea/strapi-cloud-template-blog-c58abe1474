@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_shared_contact_banners",
+  "info": {
+    "displayName": "Contact Banner",
+    "icon": "envelop"
+  },
+  "options": {},
+  "attributes": {
+    "description": {
+      "type": "text",
+      "required": true
+    },
+    "buttonLabel": {
+      "type": "string"
+    }
+  },
+  "config": {}
+}
