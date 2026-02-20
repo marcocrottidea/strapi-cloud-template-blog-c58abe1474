@@ -25,15 +25,10 @@
       "component": "shared.hero-banner",
       "repeatable": false
     },
-    "products": {
-      "type": "component",
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "component": "shared.product",
-      "repeatable": true
+    "items": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::item.item"
     }
   }
 }

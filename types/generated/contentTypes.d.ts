@@ -574,6 +574,7 @@ export interface ApiHomeHome extends Struct.SingleTypeSchema {
           localized: true;
         };
       }>;
+    items: Schema.Attribute.Relation<'oneToMany', 'api::item.item'>;
     locale: Schema.Attribute.String;
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::home.home'>;
     publishedAt: Schema.Attribute.DateTime;
@@ -581,6 +582,48 @@ export interface ApiHomeHome extends Struct.SingleTypeSchema {
       Schema.Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
+        };
+      }>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiItemItem extends Struct.CollectionTypeSchema {
+  collectionName: 'items';
+  info: {
+    displayName: 'Item';
+    pluralName: 'items';
+    singularName: 'item';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<'oneToMany', 'api::item.item'>;
+    publishedAt: Schema.Attribute.DateTime;
+    slug: Schema.Attribute.UID<'title'> &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    title: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
         };
       }>;
     updatedAt: Schema.Attribute.DateTime;
@@ -614,17 +657,12 @@ export interface ApiProductProduct extends Struct.SingleTypeSchema {
           localized: true;
         };
       }>;
+    items: Schema.Attribute.Relation<'oneToMany', 'api::item.item'>;
     locale: Schema.Attribute.String;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
       'api::product.product'
     >;
-    products: Schema.Attribute.Component<'shared.product', true> &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
     publishedAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -1183,6 +1221,7 @@ declare module '@strapi/strapi' {
       'api::global.global': ApiGlobalGlobal;
       'api::header.header': ApiHeaderHeader;
       'api::home.home': ApiHomeHome;
+      'api::item.item': ApiItemItem;
       'api::product.product': ApiProductProduct;
       'api::service.service': ApiServiceService;
       'plugin::content-releases.release': PluginContentReleasesRelease;
