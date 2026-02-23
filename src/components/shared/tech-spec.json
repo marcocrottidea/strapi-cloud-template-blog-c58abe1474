@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_shared_tech_specs",
+  "info": {
+    "displayName": "Tech spec",
+    "icon": "bulletList"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    }
+  },
+  "config": {}
+}

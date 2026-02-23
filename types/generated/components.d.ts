@@ -24,6 +24,18 @@ export interface SharedHeroBanner extends Struct.ComponentSchema {
   };
 }
 
+export interface SharedLink extends Struct.ComponentSchema {
+  collectionName: 'components_shared_links';
+  info: {
+    displayName: 'Link';
+    icon: 'link';
+  };
+  attributes: {
+    name: Schema.Attribute.String & Schema.Attribute.Required;
+    url: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
 export interface SharedMedia extends Struct.ComponentSchema {
   collectionName: 'components_shared_media';
   info: {
@@ -111,6 +123,7 @@ export interface SharedService extends Struct.ComponentSchema {
   };
   attributes: {
     description: Schema.Attribute.Text & Schema.Attribute.Required;
+    image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
     title: Schema.Attribute.String & Schema.Attribute.Required;
   };
 }
@@ -123,7 +136,19 @@ export interface SharedStrengths extends Struct.ComponentSchema {
   };
   attributes: {
     description: Schema.Attribute.Text;
+    image: Schema.Attribute.Media<'images'>;
     title: Schema.Attribute.String;
+  };
+}
+
+export interface SharedTechSpec extends Struct.ComponentSchema {
+  collectionName: 'components_shared_tech_specs';
+  info: {
+    displayName: 'Tech spec';
+    icon: 'bulletList';
+  };
+  attributes: {
+    title: Schema.Attribute.String & Schema.Attribute.Required;
   };
 }
 
@@ -132,6 +157,7 @@ declare module '@strapi/strapi' {
     export interface ComponentSchemas {
       'shared.contact-banner': SharedContactBanner;
       'shared.hero-banner': SharedHeroBanner;
+      'shared.link': SharedLink;
       'shared.media': SharedMedia;
       'shared.menu-item': SharedMenuItem;
       'shared.product': SharedProduct;
@@ -140,6 +166,7 @@ declare module '@strapi/strapi' {
       'shared.seo': SharedSeo;
       'shared.service': SharedService;
       'shared.strengths': SharedStrengths;
+      'shared.tech-spec': SharedTechSpec;
     }
   }
 }

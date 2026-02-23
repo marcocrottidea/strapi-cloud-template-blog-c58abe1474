@@ -6,6 +6,13 @@
   },
   "options": {},
   "attributes": {
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
     "title": {
       "type": "string"
     },

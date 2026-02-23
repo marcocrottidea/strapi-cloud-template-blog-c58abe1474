@@ -6,6 +6,16 @@
   },
   "options": {},
   "attributes": {
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
     "title": {
       "type": "string",
       "required": true
